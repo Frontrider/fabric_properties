@@ -1,7 +1,7 @@
-package hu.frontrider.attributes.api;
+package hu.frontrider.attachments.api;
 
-import hu.frontrider.attributes.internal.AttachmentContainer;
-import hu.frontrider.attributes.internal.AttachmentException;
+import hu.frontrider.attachments.internal.AttachmentContainer;
+import hu.frontrider.attachments.internal.AttachmentException;
 
 import java.util.*;
 import java.util.function.Function;

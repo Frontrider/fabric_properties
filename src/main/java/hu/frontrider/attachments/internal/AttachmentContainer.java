@@ -1,8 +1,8 @@
-package hu.frontrider.attributes.internal;
+package hu.frontrider.attachments.internal;
 
 
-import hu.frontrider.attributes.api.Attachment;
-import hu.frontrider.attributes.api.AttachmentWrapper;
+import hu.frontrider.attachments.api.Attachment;
+import hu.frontrider.attachments.api.AttachmentWrapper;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -44,7 +44,7 @@ public class AttachmentContainer implements AttachmentContainerInterface {
                     logger.warning("Attribute type mismatch "+type.getCanonicalName() + " is not matching "+existingAttribute.type.getCanonicalName()+". Changes have been discarded.");
                 }
             } else {
-                logger.warning(attribute.getClass().getCanonicalName() + " can not wrap other attributes, and the key is already in use. Changes have been discarded.");
+                logger.warning(attribute.getClass().getCanonicalName() + " can not wrap other attachments, and the key is already in use. Changes have been discarded.");
             }
         } else {
             attributes.put(key, new AttributeEntry(attribute, type));

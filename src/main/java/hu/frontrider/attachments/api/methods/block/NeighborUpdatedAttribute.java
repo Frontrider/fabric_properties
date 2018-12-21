@@ -1,4 +1,4 @@
-package hu.frontrider.attributes.api.methods.block;
+package hu.frontrider.attachments.api.methods.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

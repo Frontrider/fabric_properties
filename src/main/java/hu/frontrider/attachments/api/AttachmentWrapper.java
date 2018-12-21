@@ -1,4 +1,4 @@
-package hu.frontrider.attributes.api;
+package hu.frontrider.attachments.api;
 
 public interface AttachmentWrapper extends Attachment {
     /**

@@ -1,8 +1,6 @@
-package hu.frontrider.attributes.api;
+package hu.frontrider.attachments.api;
 
 import net.minecraft.nbt.CompoundTag;
-
-import java.util.Optional;
 
 public interface Attachment {
     void read(CompoundTag tag);

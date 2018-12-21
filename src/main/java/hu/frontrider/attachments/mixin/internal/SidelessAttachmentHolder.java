@@ -1,14 +1,10 @@
-package hu.frontrider.attributes.internal;
+package hu.frontrider.attachments.mixin.internal;
 
-import hu.frontrider.attributes.api.Attachment;
+import hu.frontrider.attachments.api.Attachment;
 
 import java.util.Optional;
 
-/**
- * The attachment container template
- * */
-public interface AttachmentContainerInterface {
-
+public interface SidelessAttachmentHolder {
     void addAttribute(String key, Attachment attribute, Class type);
 
     <T> Optional<T> getAttribute(String key, Class<T> type);

@@ -1,6 +1,6 @@
 {
   "required": true,
-  "package": "hu.frontrider.attributes.mixin",
+  "package": "hu.frontrider.attachments.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "BlockAttachmentMixin",

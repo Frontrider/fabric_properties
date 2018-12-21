@@ -1,19 +1,19 @@
-package hu.frontrider.attributes.mixin;
+package hu.frontrider.attachments.mixin;
 
 
-import hu.frontrider.attributes.api.Attachment;
-import hu.frontrider.attributes.internal.AttachmentContainer;
-import net.minecraft.block.Block;
+import hu.frontrider.attachments.api.Attachment;
+import hu.frontrider.attachments.internal.AttachmentContainer;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.util.math.Direction;
-import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Optional;
 
-@Mixin(value = {Block.class})
-public class BlockAttachmentMixin{
+@Mixin(value = {BlockEntity.class})
+public class BlockEntityAttachmentMixin {
 
     private AttachmentContainer[] attachmentContainers;
 
@@ -21,7 +21,6 @@ public class BlockAttachmentMixin{
     private void onConstructed(CallbackInfo ci) {
         attachmentContainers = new AttachmentContainer[6];
     }
-
     public void addAttribute(String key, Attachment attribute, Class type, Direction side) {
         AttachmentContainer attachmentContainer = attachmentContainers[side.ordinal()];
         if(attachmentContainer == null) {

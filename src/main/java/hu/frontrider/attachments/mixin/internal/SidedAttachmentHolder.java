@@ -1,6 +1,6 @@
-package hu.frontrider.attributes.mixin.internal;
+package hu.frontrider.attachments.mixin.internal;
 
-import hu.frontrider.attributes.api.Attachment;
+import hu.frontrider.attachments.api.Attachment;
 import net.minecraft.util.math.Direction;
 
 import java.util.Optional;

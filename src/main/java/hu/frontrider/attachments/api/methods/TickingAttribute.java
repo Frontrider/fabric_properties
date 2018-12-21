@@ -1,4 +1,4 @@
-package hu.frontrider.attributes.api.methods;
+package hu.frontrider.attachments.api.methods;
 
 public interface TickingAttribute {
      void onTick();

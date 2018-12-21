@@ -1,9 +1,8 @@
 {
   "required": true,
-  "package": "net.fabricmc.example.mixin",
+  "package": "hu.frontrider.attachments.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "ExampleMixin"
   ],
   "injectors": {
     "defaultRequire": 1
