@@ -1,8 +1,8 @@
 package hu.frontrider.attributes.internal;
 
 
-import hu.frontrider.attributes.api.Attribute;
-import hu.frontrider.attributes.api.AttributeWrapper;
+import hu.frontrider.attributes.api.Attachment;
+import hu.frontrider.attributes.api.AttachmentWrapper;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,14 +10,15 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.logging.Logger;
 
-public class AttributeContainer implements AttributeContainerInterface {
+public class AttachmentContainer implements AttachmentContainerInterface {
     private Logger logger = Logger.getLogger(this.getClass().getCanonicalName());
     private Map<String, AttributeEntry> attributes;
 
-    public AttributeContainer() {
+    public AttachmentContainer() {
         attributes = new HashMap<>();
     }
 
+    @Override
     @SuppressWarnings("unchecked")
     public <T> Optional<T> getAttribute(String key, Class<T> type) {
         if (attributes.containsKey(key)) {
@@ -31,12 +32,13 @@ public class AttributeContainer implements AttributeContainerInterface {
         return Optional.empty();
     }
 
-    public void addAttribute(String key, Attribute attribute,Class type) {
+    @Override
+    public void addAttribute(String key, Attachment attribute, Class type) {
         if (attributes.containsKey(key)) {
-            if (attribute instanceof AttributeWrapper) {
+            if (attribute instanceof AttachmentWrapper) {
                 final AttributeEntry existingAttribute = attributes.get(key);
                 if(attribute.getClass().isInstance(existingAttribute)){
-                    ((AttributeWrapper) attribute).wrap(existingAttribute.attribute);
+                    ((AttachmentWrapper) attribute).wrap(existingAttribute.attribute);
                     attributes.put(key,new AttributeEntry(attribute, type));
                 }else{
                     logger.warning("Attribute type mismatch "+type.getCanonicalName() + " is not matching "+existingAttribute.type.getCanonicalName()+". Changes have been discarded.");
@@ -49,32 +51,33 @@ public class AttributeContainer implements AttributeContainerInterface {
         }
     }
 
-    public void removeAttribute(String key){
-
+    @Override
+    public boolean removeAttribute(String key){
+        return attributes.remove(key) != null;
     }
 
     class AttributeEntry{
-        private final Attribute attribute;
+        private final Attachment attribute;
         private final Class type;
 
         /**
          * @param attribute the object we want to use
          * @param type  the type that we're going to treat our attribute. MUST BE AN INTERFACE!
          * */
-        AttributeEntry(Attribute attribute,Class type){
+        AttributeEntry(Attachment attribute, Class type){
             this.type = type;
             if(!type.isInterface())
-                throw new AttributeException(type.getCanonicalName()+" is not an interface!");
+                throw new AttachmentException(type.getCanonicalName()+" is not an interface!");
 
             if(type.isInstance(attribute)){
                 this.attribute = attribute;
             }else{
-                throw new AttributeException(attribute.getClass().getCanonicalName()+" is not an instance of "+type.getCanonicalName()+"!");
+                throw new AttachmentException(attribute.getClass().getCanonicalName()+" is not an instance of "+type.getCanonicalName()+"!");
             }
 
         }
 
-        public Attribute getAttribute() {
+        public Attachment getAttribute() {
             return attribute;
         }
 

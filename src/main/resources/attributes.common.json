@@ -1,9 +1,11 @@
 {
   "required": true,
-  "package": "hu.frontrider.momentum",
+  "package": "hu.frontrider.attributes.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "PistonMixin"
+    "BlockAttachmentMixin",
+    "BlockEntityAttachmentMixin",
+    "EntityAttachmentMixin"
   ],
   "injectors": {
     "defaultRequire": 1

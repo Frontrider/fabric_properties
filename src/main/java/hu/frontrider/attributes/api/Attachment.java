@@ -4,7 +4,7 @@ import net.minecraft.nbt.CompoundTag;
 
 import java.util.Optional;
 
-public interface Attribute {
+public interface Attachment {
     void read(CompoundTag tag);
 
     CompoundTag write(CompoundTag tag);
